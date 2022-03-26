@@ -31,8 +31,7 @@ video_file = os.path.join(temp_dir, "video.mp4")
 
 if __name__ == "__main__":
     # if not os.path.isfile(video_file):
-    #     download_ytvid([yt_link], video_file)
-
+    #     download_ytvid(yt_link, video_file)
     # else:
     #     print("Already Downloaded!")
     
@@ -52,20 +51,7 @@ if __name__ == "__main__":
     # del audio, audios
     # print()
 
-    audio_lst = [
-        os.path.join(temp_dir,  "audio_0.wav"),
-        os.path.join(temp_dir,  "audio_1.wav"),
-        os.path.join(temp_dir,  "audio_2.wav"),
-        os.path.join(temp_dir,  "audio_3.wav"),
-        os.path.join(temp_dir,  "audio_4.wav"),
-        os.path.join(temp_dir,  "audio_5.wav"),
-        os.path.join(temp_dir,  "audio_6.wav"),
-        os.path.join(temp_dir,  "audio_7.wav"),
-        os.path.join(temp_dir,  "audio_8.wav"),
-        os.path.join(temp_dir,  "audio_9.wav"),
-        os.path.join(temp_dir, "audio_10.wav"),
-        os.path.join(temp_dir, "audio_11.wav"),
-    ]
+    audio_lst = [os.path.join(temp_dir, audio_file.format(n)) for n in range(11)]
     
     transformerlm_full_text = transcribe(audio_lst, transcribe_1)
     print(transformerlm_full_text)
